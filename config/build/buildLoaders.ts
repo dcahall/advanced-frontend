@@ -1,28 +1,36 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack from "webpack";
 
-import { buildOptions } from "./types/config";
+import {buildOptions} from "./types/config";
 
 export function buildLoaders(options: buildOptions): webpack.RuleSetRule[] {
 
-  const ScssLoader = {
-    test: /\.s[ac]ss$/i,
+    const ScssLoader = {
+        test: /\.s[ac]ss$/i,
         use: [
-          options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader",
+            options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: {
+                        auto: (resourcePath: string) => resourcePath.includes('.module.'),
+                        localIdentName: options.isDev ? "[path][name]__[hash:base64:5]" : "[hash:base64:5]"
+                    },
+                }
+            },
+            "sass-loader",
         ],
-  }
+    }
 
-  // TS умеет работать с расширением jsx и tsx, так бы пришлось подключать babel
-  const typeScriptLoader = {
-    test: /\.tsx?$/,
-    use: "ts-loader",
-    exclude: /node_modules/,
-  };
+    // TS умеет работать с расширением jsx и tsx, так бы пришлось подключать babel
+    const typeScriptLoader = {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+    };
 
-  return [
-    typeScriptLoader,
-    ScssLoader,
-  ];
+    return [
+        typeScriptLoader,
+        ScssLoader,
+    ];
 }
