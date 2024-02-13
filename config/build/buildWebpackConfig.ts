@@ -22,7 +22,7 @@ export function buildWebpackConfig(options: buildOptions): webpack.Configuration
                 path: paths.build,
                 clean: true,
             },
-            resolve: buildResolvers(),
+            resolve: buildResolvers(paths),
             module: {
                 rules: buildLoaders(options)
             },

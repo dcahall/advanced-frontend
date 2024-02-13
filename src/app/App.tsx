@@ -1,17 +1,18 @@
 import React, {Suspense} from 'react';
 import {Link, Route, Routes} from 'react-router-dom';
 
-import {MainPageAsync} from "./pages/mainPage/MainPage.async";
-import {AboutPageAsync} from "./pages/aboutPage/AboutPage.async";
+import {MainPageAsync} from "@src/pages/mainPage/MainPage.async";
+import {AboutPageAsync} from "@src/pages/aboutPage/AboutPage.async";
 
-import {useTheme} from "./theme/useContext";
-import {Theme} from "./theme/ThemeContext";
+import {useTheme} from "@src/shared/themeProvider";
+
+import {classNames} from '@src/helpers/ClassNames';
 
 const App = () => {
     const {theme, toggleTheme} = useTheme()
 
     return (
-        <div className={`app ${theme}`} >
+        <div className={classNames('app', {}, [theme])}>
             <button onClick={toggleTheme}>сменить тему</button>
             <Link to={'/'}>Главная</Link>
             <Link to={'/about'}>О сайте</Link>

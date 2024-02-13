@@ -8,9 +8,14 @@
     "allowJs": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "baseUrl": ".",
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ]
+    },
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   },
   "ts-node": {
     "compilerOptions": {
