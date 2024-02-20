@@ -5,7 +5,22 @@ import {buildOptions} from "./types/config";
 
 export function buildLoaders(options: buildOptions): webpack.RuleSetRule[] {
 
-    const ScssLoader = {
+    const svgLoader = {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    }
+
+    const scssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
             options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -30,7 +45,9 @@ export function buildLoaders(options: buildOptions): webpack.RuleSetRule[] {
     };
 
     return [
+        svgLoader,
+        fileLoader,
         typeScriptLoader,
-        ScssLoader,
+        scssLoader,
     ];
 }
