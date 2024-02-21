@@ -5,7 +5,7 @@ import cls from './ThemeSwitcher.module.scss';
 import {DarkThemeIcon, LightThemeIcon} from "@/shared/assets";
 import {classNames} from "@/shared/lib/ClassNames";
 import {useTheme} from "@/shared/themeProvider";
-import {Button, ButtonTheme} from "@/shared/ui";
+import {Button, ButtonTheme} from "@/shared/ui/button";
 
 interface ThemeSwitcherProps extends ButtonHTMLAttributes<any> {
     className?: string
