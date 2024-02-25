@@ -1,1 +1,0 @@
-export {routerPaths, AppRoutes, routerConfig} from './lib/routeConfig'

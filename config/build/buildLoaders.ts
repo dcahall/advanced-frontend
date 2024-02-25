@@ -37,6 +37,17 @@ export function buildLoaders(options: buildOptions): webpack.RuleSetRule[] {
         ],
     }
 
+    const babelLoader = {
+        test: /\.js|jsx|tsx$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        }
+    }
+
     // TS умеет работать с расширением jsx и tsx, так бы пришлось подключать babel
     const typeScriptLoader = {
         test: /\.tsx?$/,
@@ -47,6 +58,7 @@ export function buildLoaders(options: buildOptions): webpack.RuleSetRule[] {
     return [
         svgLoader,
         fileLoader,
+        babelLoader,
         typeScriptLoader,
         scssLoader,
     ];
