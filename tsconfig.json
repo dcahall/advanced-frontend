@@ -21,5 +21,6 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": [".eslintrc.js", "babel.config.json", "./src/**/*", "./config/**/*", "webpack.config.ts"]
 }

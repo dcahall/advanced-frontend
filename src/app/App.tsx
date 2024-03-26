@@ -1,17 +1,17 @@
-import React, {Suspense} from 'react';
+import React, { type FC, Suspense } from 'react'
 
-import {Navbar} from "@/widgets/navbar";
-import {Sidebar} from "@/widgets/sidebar";
+import { Navbar } from "@/widgets/navbar"
+import { Sidebar } from "@/widgets/sidebar"
 
-import {useTheme} from "@/shared/themeProvider";
-import {classNames} from '@/shared/lib/ClassNames';
-import '@/shared/config/i18n/i18n';
+import { useTheme } from "@/shared/themeProvider"
+import { classNames } from '@/shared/lib/ClassNames'
+import '@/shared/config/i18n/i18n'
 
-import {AppRouter} from "./providers/router";
+import { AppRouter } from "./providers/router"
 
-const App = () => {
-    const {theme} = useTheme()
-3
+const App: FC = () => {
+    const { theme } = useTheme()
+
     return (
         <Suspense fallback="">
             <div className={classNames('app', {}, [theme])}>
@@ -26,7 +26,7 @@ const App = () => {
                 </div>
             </div>
         </Suspense>
-    );
-};
+    )
+}
 
-export default App;
+export default App
