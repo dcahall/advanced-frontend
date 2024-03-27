@@ -26,7 +26,8 @@ module.exports = {
         project: ['./tsconfig.json']
     },
     plugins: [
-        "react"
+        "react",
+        "i18next"
     ],
     settings: {
         react: {
@@ -43,6 +44,7 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": "warn",
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",
-        "@typescript-eslint/no-unused-vars": "warn"
+        "@typescript-eslint/no-unused-vars": "warn",
+        "i18next/no-literal-string": [2, { markupOnly: true }]
     }
 }

@@ -1,19 +1,19 @@
 @import "./variables/global";
 @import "./themes/dark";
 @import "./themes/light";
-@import './reset';
+@import "./reset";
 
 .app {
-  min-height: 100vh;
-  background-color: var(--bg-color);
-  color: var(--primary-color);
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
 }
 
 .content-page {
-  display: flex;
+    display: flex;
 }
 
 .page-wrapper {
-  flex-grow: 1;
-  padding: 20px;
+    flex-grow: 1;
+    padding: 20px;
 }
