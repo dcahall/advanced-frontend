@@ -7,5 +7,5 @@ export const classNames = (cls: string = '', mods: Mods = {}, additional: string
             .filter(([className, val]) => Boolean(val))
             .map(([className]) => className),
         ...additional.filter(Boolean)
-    ].join(' ')
+    ].join(' ').trim()
 }

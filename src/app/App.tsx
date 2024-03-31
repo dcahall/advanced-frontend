@@ -4,7 +4,7 @@ import { Navbar } from "@/widgets/navbar"
 import { Sidebar } from "@/widgets/sidebar"
 
 import { useTheme } from "@/shared/themeProvider"
-import { classNames } from '@/shared/lib/ClassNames'
+import { classNames } from '@/shared/lib/classNames'
 import '@/shared/config/i18n/i18n'
 
 import { AppRouter } from "./providers/router"

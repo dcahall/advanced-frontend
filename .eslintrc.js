@@ -12,9 +12,7 @@ module.exports = {
             env: {
                 node: true
             },
-            files: [
-                ".eslintrc.{js,cjs}"
-            ],
+            files: ["*.ts", "*.tsx"],
             parserOptions: {
                 sourceType: "script"
             }
@@ -45,6 +43,9 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",
         "@typescript-eslint/no-unused-vars": "warn",
-        "i18next/no-literal-string": [2, { markupOnly: true }]
+        'i18next/no-literal-string': [
+            'error',
+            { markupOnly: true, onlyAttribute: [""] }
+        ]
     }
 }
