@@ -2,6 +2,7 @@ import React, { type FC, Suspense } from 'react'
 
 import { Navbar } from "@/widgets/navbar"
 import { Sidebar } from "@/widgets/sidebar"
+import { PageLoader } from "@/widgets/pageLoader/ui/PageLoader"
 
 import { useTheme } from "@/shared/themeProvider"
 import { classNames } from '@/shared/lib/classNames'
@@ -13,13 +14,13 @@ const App: FC = () => {
     const { theme } = useTheme()
 
     return (
-        <Suspense fallback="">
+        <Suspense fallback=''>
             <div className={classNames('app', {}, [theme])}>
                 <Navbar/>
                 <div className='content-page'>
                     <Sidebar/>
                     <div className='page-wrapper'>
-                        <Suspense fallback='Loading'>
+                        <Suspense fallback={<PageLoader/>}>
                             <AppRouter/>
                         </Suspense>
                     </div>
