@@ -3,5 +3,7 @@
   "Главная": "Main",
   "Язык": "English",
   "Открыть меню": "Open",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "There has been an unforeseen error",
+  "Обновить страницу": "Reload page"
 }

@@ -5,12 +5,15 @@ import '@/app/styles/index.scss'
 import App from '@/app/App'
 
 import { ThemeProvider } from '@/shared/themeProvider'
+import { ErrorBoundary } from "@/app/providers/errorBoundary"
 
 render(
-    <ThemeProvider>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
-    </ThemeProvider>,
+    <ErrorBoundary>
+        <ThemeProvider>
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
+        </ThemeProvider>
+    </ErrorBoundary>,
     document.getElementById('root')
 )
