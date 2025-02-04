@@ -1,5 +1,5 @@
 import React, { type ErrorInfo, type ReactNode } from "react"
-import { PageError } from "@/widgets/pageError/ui/PageError"
+import { PageError } from "@/widgets/pageError"
 
 interface ErrorBoundaryProps {
     children: ReactNode
@@ -10,22 +10,22 @@ interface ErrorBoundaryState {
 }
 
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-    constructor (props: ErrorBoundaryProps) {
+    constructor(props: ErrorBoundaryProps) {
         super(props)
         this.state = { hasError: false }
     }
 
-    static getDerivedStateFromError () {
+    static getDerivedStateFromError() {
         return { hasError: true }
     }
 
-    componentDidCatch (error: Error, errorInfo: ErrorInfo) {
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
         console.log(error)
     }
 
-    render () {
+    render() {
         if (this.state.hasError) {
-            return <PageError/>
+            return <PageError />
         }
 
         return this.props.children

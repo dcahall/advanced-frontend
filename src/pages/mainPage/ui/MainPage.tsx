@@ -1,3 +1,4 @@
+import { BugButton } from "@/app/providers/errorBoundary"
 import { useTranslation } from "react-i18next"
 
 const MainPage = () => {
