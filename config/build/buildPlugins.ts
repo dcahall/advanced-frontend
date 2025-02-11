@@ -4,9 +4,9 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin"
 
-import { type buildOptions } from './types/config'
+import { buildOptions } from './types/config'
 
-export function buildPlugins ({ paths, isDev }: buildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev }: buildOptions): webpack.WebpackPluginInstance[] {
     const plugins: webpack.WebpackPluginInstance[] = [
         new HTMLWebpackPlugin({
             template: paths.html

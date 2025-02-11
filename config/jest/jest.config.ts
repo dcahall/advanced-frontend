@@ -1,9 +1,13 @@
+import path from "path"
+
 export default {
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
 
     // Stop running tests after `n` failures
     bail: 40,
+
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 
     // An array of file extensions your modules use
     moduleFileExtensions: [
@@ -25,6 +29,12 @@ export default {
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
     ],
+
+    moduleNameMapper: {
+        "^@/(.*)$": "<rootDir>src/$1",
+        '\\.(css|scss)$': 'identity-obj-proxy',
+        '\\.(svg)$': path.resolve(__dirname, "EmptyMockComponent")
+    },
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
     testPathIgnorePatterns: [

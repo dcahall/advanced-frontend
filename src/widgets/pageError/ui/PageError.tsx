@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import cls from './pageError.module.scss'
 
-import { classNames } from "@/shared/lib/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 
 interface PageErrorProps {
     className?: string

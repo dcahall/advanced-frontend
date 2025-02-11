@@ -3,7 +3,7 @@ import { Link, type LinkProps } from "react-router-dom"
 
 import cls from './AppLink.module.scss'
 
-import { classNames } from "@/shared/lib/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',

@@ -1,7 +1,7 @@
 import { type ButtonHTMLAttributes, type FC } from "react"
 
 import { DarkThemeIcon, LightThemeIcon } from "@/shared/assets"
-import { classNames } from "@/shared/lib/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import { useTheme } from "@/shared/themeProvider"
 import { Button, ButtonTheme } from "@/shared/ui/button"
 
