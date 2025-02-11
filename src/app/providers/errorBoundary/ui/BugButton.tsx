@@ -7,12 +7,12 @@ export const BugButton = () => {
     const [error, setError] = useState<boolean>(false)
 
     const onThrowError = () => {
-        setError(true);
+        setError(true)
     }
 
     useEffect(() => {
         if (error) {
-            throw new Error
+            throw new Error()
         }
     }, [error])
 
