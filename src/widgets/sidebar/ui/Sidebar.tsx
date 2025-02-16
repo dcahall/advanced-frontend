@@ -5,7 +5,7 @@ import cls from './Sidebar.module.scss'
 
 import { classNames } from "@/shared/lib/classNames/classNames"
 import { ThemeSwitcher } from "@/widgets/themeSwitcher"
-import { LangSwitcher } from "@/widgets/LangSwitcher/ui/LangSwitcher"
+import { LangSwitcher } from "@/widgets/LangSwitcher"
 interface NavbarProps {
     className?: string
 }

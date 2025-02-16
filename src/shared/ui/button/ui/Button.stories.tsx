@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button, ButtonTheme } from './Button'
+import { themeDecorator } from "@/shared/config/storybook/decorators/themeDecorator"
+import { Theme } from "@/shared/themeProvider/lib/ThemeContext"
 
 const meta = {
     title: 'shared/Button',
@@ -26,4 +28,13 @@ export const Outline: Story = {
     args: {
         theme: ButtonTheme.OUTLINE
     }
+}
+
+export const OutlineDark: Story = {
+    args: {
+        theme: ButtonTheme.OUTLINE
+    },
+    decorators: [
+        themeDecorator(Theme.DARK)
+    ]
 }
