@@ -26,3 +26,13 @@ jobs:
         run: npm ci
       - name: build production version
         run: npm run build:prod
+      - name: lint ts
+        run: npm run lint:ts
+      - name: lint scss
+        run: npm run lint:scss
+      - name: unit test
+        run: npm run test:unit
+      - name: build storybook
+        run: npm run storybook:build
+      - name: snapshot test
+        run: npm run test:ui:ci
