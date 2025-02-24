@@ -5,14 +5,14 @@ import cls from './Sidebar.module.scss'
 
 import { classNames } from "@/shared/lib/classNames/classNames"
 import { ThemeSwitcher } from "@/widgets/themeSwitcher"
-import { LangSwitcher } from "@/widgets/LangSwitcher"
+import { LangSwitcher } from "@/widgets/langSwitcher"
 interface NavbarProps {
     className?: string
 }
 
 export const Sidebar: FC<NavbarProps> = ({ className }) => {
     const [collapsed, setCollapsed] = useState<boolean>(false)
-    const { t } = useTranslation()
+    const { t } = useTranslation('translation')
     const onToggle = () => {
         setCollapsed(prev => !prev)
     }
@@ -22,7 +22,7 @@ export const Sidebar: FC<NavbarProps> = ({ className }) => {
             className={classNames(cls.navbar, { [cls.collapsed]: collapsed }, [className])}
             data-testid={"sidebar"}
         >
-            <button onClick={onToggle} data-testid={"toggle-btn"}>{t('Открыть меню:')}</button>
+            <button onClick={onToggle} data-testid={"toggle-btn"}>{t('Открыть меню')}</button>
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
                 <LangSwitcher className={cls.lngSwitcher}/>

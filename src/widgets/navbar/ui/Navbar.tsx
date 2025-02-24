@@ -18,7 +18,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         <div className={classNames(cls.navbar, {}, [className])}>
             <div className={cls.links}>
                 <AppLink
-                    theme={AppLinkTheme.INVERTED}
+                    theme={AppLinkTheme.SECONDARY}
                     to={routerPaths.main}
                     className={cls.mainLink}
                 >
@@ -26,7 +26,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                     {t("Главная")}
                 </AppLink>
 
-                <AppLink theme={AppLinkTheme.INVERTED} to={routerPaths.about}>
+                <AppLink theme={AppLinkTheme.SECONDARY} to={routerPaths.about}>
                     {t("О сайте")}
                 </AppLink>
             </div>

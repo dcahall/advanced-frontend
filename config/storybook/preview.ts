@@ -3,7 +3,6 @@ import { styleDecorator } from "../../src/shared/config/storybook/decorators/sty
 import { themeDecorator } from "../../src/shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "../../src/shared/themeProvider/lib/ThemeContext"
 import { routerDecorator } from "../../src/shared/config/storybook/decorators/routerDecorator"
-import { I18nDecorator } from "../../src/shared/config/storybook/decorators/I18nDecorator"
 
 const preview: Preview = {
     parameters: {
@@ -17,7 +16,6 @@ const preview: Preview = {
     decorators: [
         styleDecorator,
         routerDecorator,
-        I18nDecorator,
         themeDecorator(Theme.LIGHT)
     ]
 }
