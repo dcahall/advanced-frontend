@@ -2,6 +2,9 @@
   "name": "production-project",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "author": "Kiselev Roman",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000 --config webpack.config.ts",
@@ -11,13 +14,12 @@
     "lint:ts:fix": "eslint \"**/*.ts?(x)\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-    "test": "jest --config ./config/jest/jest.config.ts",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.7",
@@ -58,6 +60,7 @@
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "loki": "^0.35.1",
     "mini-css-extract-plugin": "^2.7.5",
     "react-refresh": "^0.14.0",
     "sass": "^1.62.1",
@@ -82,5 +85,20 @@
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.5",
     "react-router-dom": "^6.2.1"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
