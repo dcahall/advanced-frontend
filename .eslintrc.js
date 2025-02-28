@@ -44,7 +44,7 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": "warn",
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",
-        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/no-unused-vars": "error",
         'i18next/no-literal-string': [
             'error',
             { markupOnly: true, onlyAttribute: [""] }

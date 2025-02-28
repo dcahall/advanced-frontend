@@ -22,3 +22,10 @@ export const Dark: Story = {
         themeDecorator(Theme.DARK)
     ]
 }
+
+export const Short: Story = {
+    args: {
+        isShort: true
+    }
+}
+

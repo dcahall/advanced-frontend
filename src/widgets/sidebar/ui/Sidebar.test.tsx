@@ -10,7 +10,7 @@ describe('Sidebar test', () => {
 
     test('toggle test', () => {
         renderWithTranslations(<Sidebar/>)
-        const toggleBtn = screen.getByTestId('toggle-btn')
+        const toggleBtn = screen.getByTestId('sidebar-toggle')
         fireEvent.click(toggleBtn)
         const sidebar = screen.getByTestId('sidebar')
 
