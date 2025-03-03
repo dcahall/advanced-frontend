@@ -1,14 +1,15 @@
-import {type FC, useState} from "react"
-import {useTranslation} from "react-i18next"
+import { type FC, useState } from "react"
+import { useTranslation } from "react-i18next"
 
 import cls from './Sidebar.module.scss'
 
-import {classNames} from "@/shared/lib/classNames/classNames"
-import {ThemeSwitcher} from "@/widgets/themeSwitcher"
-import {LangSwitcher} from "@/widgets/langSwitcher"
-import {Button, ButtonTheme, ButtonSize} from "@/shared/ui/button";
-import {AppLink, AppLinkTheme} from "@/shared/ui/appLink";
-import {routerPaths} from "@/shared/config";
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { ThemeSwitcher } from "@/widgets/themeSwitcher"
+import { LangSwitcher } from "@/widgets/langSwitcher"
+import { Button, ButtonTheme, ButtonSize } from "@/shared/ui/button"
+import { AppLink, AppLinkTheme } from "@/shared/ui/appLink"
+import { routerPaths } from "@/shared/config"
+import { AboutIcon, MainIcon } from "@/shared/assets"
 
 interface NavbarProps {
     className?: string
@@ -23,21 +24,29 @@ export const Sidebar: FC<NavbarProps> = ({ className }) => {
 
     return (
         <div
-            className={classNames(cls.navbar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
             data-testid={"sidebar"}
         >
             <div className={classNames(cls.items)}>
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
                     to={routerPaths.main}
-                    className={cls.mainLink}
+                    className={cls.item}
                 >
-
-                    {t("Главная")}
+                    <MainIcon className={cls.icon}/>
+                    <span className={cls.link}>
+                        {t("Главная")}
+                    </span>
                 </AppLink>
-
-                <AppLink theme={AppLinkTheme.SECONDARY} to={routerPaths.about}>
-                    {t("О сайте")}
+                <AppLink
+                    theme={AppLinkTheme.SECONDARY}
+                    to={routerPaths.about}
+                    className={cls.item}
+                >
+                    <AboutIcon className={cls.icon}/>
+                    <span className={cls.link}>
+                        {t("О сайте")}
+                    </span>
                 </AppLink>
             </div>
             <Button
