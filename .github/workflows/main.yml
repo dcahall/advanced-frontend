@@ -2,9 +2,9 @@ name: Advanced-frontend CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
 
 jobs:
   build:
@@ -27,12 +27,17 @@ jobs:
       - name: build production version
         run: npm run build:prod
       - name: lint ts
+        if: always()
         run: npm run lint:ts
       - name: lint scss
+        if: always()
         run: npm run lint:scss
       - name: unit test
+        if: always()
         run: npm run test:unit
       - name: build storybook
+        if: always()
         run: npm run storybook:build
       - name: snapshot test
+        if: always()
         run: npm run test:ui:ci
