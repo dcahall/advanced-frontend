@@ -47,7 +47,6 @@
     fill: var(--inverted-primary-color);
 }
 
-
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
@@ -55,6 +54,7 @@
         flex-direction: column;
         align-items: center;
     }
+
     .lngSwitcher {
         margin-left: 0;
     }

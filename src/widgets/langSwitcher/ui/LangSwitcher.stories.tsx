@@ -28,4 +28,3 @@ export const Short: Story = {
         isShort: true
     }
 }
-
