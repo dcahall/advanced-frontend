@@ -7,7 +7,8 @@ module.exports = {
         "standard-with-typescript",
         "plugin:react/recommended",
         "plugin:storybook/recommended",
-        "plugin:storybook/recommended"
+        "plugin:storybook/recommended",
+        "plugin:react-hooks/recommended-legacy"
     ],
     overrides: [
         {
@@ -48,6 +49,8 @@ module.exports = {
         'i18next/no-literal-string': [
             'error',
             { markupOnly: true, onlyAttribute: [""] }
-        ]
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error"
     }
 }

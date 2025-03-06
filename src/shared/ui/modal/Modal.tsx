@@ -2,7 +2,8 @@ import { type FC, type ReactNode, useCallback, useEffect, useRef, useState } fro
 
 import cls from './Modal.module.scss'
 
-import { classNames } from "@/shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames"
+import { Portal } from "@/shared/ui/portal"
 
 interface ModalProps {
     className?: string
@@ -17,7 +18,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, className, children }) 
     const [isClosed, setIsClosed] = useState(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
-    const closeHandler = () => {
+    const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosed(true)
             timerRef.current = setTimeout(() => {
@@ -25,7 +26,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, className, children }) 
                 setIsClosed(false)
             }, ANIMATION_DELAY)
         }
-    }
+    }, [onClose])
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
@@ -57,12 +58,14 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, className, children }) 
     }
 
     return (
-        <div className={classNames(cls.modal, mods, [className])}>
-            <div className={classNames(cls.overlay)} onClick={closeHandler}>
-                <div className={classNames(cls.content)} onClick={onClickContent}>
-                    {children}
+        <Portal>
+            <div className={classNames(cls.modal, mods, [className])}>
+                <div className={classNames(cls.overlay)} onClick={closeHandler}>
+                    <div className={classNames(cls.content)} onClick={onClickContent}>
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     )
 }

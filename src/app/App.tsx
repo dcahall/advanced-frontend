@@ -1,4 +1,4 @@
-import React, { type FC, Suspense, useState } from 'react'
+import React, { type FC, Suspense, useEffect } from 'react'
 
 import { Navbar } from "@/widgets/navbar"
 import { Sidebar } from "@/widgets/sidebar"
@@ -9,19 +9,17 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import '@/shared/config/i18n/i18n'
 
 import { AppRouter } from "./providers/router"
-import { Modal } from "@/shared/ui/modal"
 
 const App: FC = () => {
     const { theme } = useTheme()
-    const [isOpen, setIsOpen] = useState(false)
+
+    useEffect(() => {
+        document.body.className = `${theme} body`
+    }, [theme])
 
     return (
         <Suspense fallback=''>
-            <div className={classNames('app', {}, [theme])}>
-                <button onClick={() => { setIsOpen(prev => !prev) }}>toggle</button>
-                <Modal isOpen={isOpen} onClose={() => { setIsOpen(false) }}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores assumenda cumque distinctio iste pariatur quos. A aut beatae deserunt dolorum!
-                </Modal>
+            <div className={classNames('app', {}, [])}>
                 <Navbar/>
                 <div className='content-page'>
                     <Sidebar/>

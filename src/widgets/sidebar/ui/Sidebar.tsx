@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import cls from './Sidebar.module.scss'
 
-import { classNames } from "@/shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames"
 import { ThemeSwitcher } from "@/widgets/themeSwitcher"
 import { LangSwitcher } from "@/widgets/langSwitcher"
 import { Button, ButtonTheme, ButtonSize } from "@/shared/ui/button"

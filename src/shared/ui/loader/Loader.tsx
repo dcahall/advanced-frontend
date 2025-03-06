@@ -1,8 +1,8 @@
 import { type FC } from "react"
 
-import './loader.scss'
+import './Loader.scss'
 
-import { classNames } from "@/shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames"
 
 interface LoaderProps {
     className?: string
