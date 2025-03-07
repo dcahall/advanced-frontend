@@ -21,10 +21,16 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
-            <Button theme={ButtonTheme.OUTLINE} className={cls.links}>
+            <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={onToggleModal}>
                 {t('Войти')}
             </Button>
-            <Modal>check</Modal>
+            <Modal
+                isOpen={isAuthModal}
+                onClose={onToggleModal}
+            >
+                {/* eslint-disable-next-line i18next/no-literal-string */}
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, impedit?
+            </Modal>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import { type ButtonHTMLAttributes, type FC } from "react"
 
 import { DarkThemeIcon, LightThemeIcon } from "@/shared/assets"
 import { classNames } from "@/shared/lib/classNames"
-import { useTheme } from "@/shared/themeProvider"
+import { useTheme, Theme } from "@/shared/themeProvider"
 import { Button, ButtonTheme } from "@/shared/ui/button"
 
 interface ThemeSwitcherProps extends ButtonHTMLAttributes<any> {
@@ -19,7 +19,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
             theme={ButtonTheme.CLEAR}
         >
             {
-                theme === 'light' ? <LightThemeIcon/> : <DarkThemeIcon/>
+                theme === Theme.LIGHT ? <LightThemeIcon/> : <DarkThemeIcon/>
             }
         </Button>
     )

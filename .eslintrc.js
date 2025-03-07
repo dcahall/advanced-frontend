@@ -19,6 +19,12 @@ module.exports = {
             parserOptions: {
                 sourceType: "script"
             }
+        },
+        {
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+            rules: {
+                "max-len": 'off'
+            }
         }
     ],
     parserOptions: {
@@ -37,6 +43,7 @@ module.exports = {
     },
     rules: {
         quotes: "off",
+        "max-len": ["error", 200],
         "@typescript-eslint/quotes": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/indent": ["error", 4],

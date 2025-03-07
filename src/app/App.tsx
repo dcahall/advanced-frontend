@@ -1,4 +1,4 @@
-import React, { type FC, Suspense, useEffect } from 'react'
+import React, { type FC, Suspense, useState } from 'react'
 
 import { Navbar } from "@/widgets/navbar"
 import { Sidebar } from "@/widgets/sidebar"
@@ -13,13 +13,9 @@ import { AppRouter } from "./providers/router"
 const App: FC = () => {
     const { theme } = useTheme()
 
-    useEffect(() => {
-        document.body.className = `${theme} body`
-    }, [theme])
-
     return (
         <Suspense fallback=''>
-            <div className={classNames('app', {}, [])}>
+            <div className={classNames('app', {}, [theme])}>
                 <Navbar/>
                 <div className='content-page'>
                     <Sidebar/>
