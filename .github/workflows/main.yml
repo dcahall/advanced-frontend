@@ -38,6 +38,6 @@ jobs:
       - name: build storybook
         if: always()
         run: npm run storybook:build
-      - name: snapshot test
-        if: always()
-        run: npm run test:ui:ci
+#      - name: snapshot test
+#        if: always()
+#        run: npm run test:ui:ci

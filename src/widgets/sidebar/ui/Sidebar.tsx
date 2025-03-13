@@ -8,7 +8,7 @@ import { ThemeSwitcher } from "@/widgets/themeSwitcher"
 import { LangSwitcher } from "@/widgets/langSwitcher"
 import { Button, ButtonTheme, ButtonSize } from "@/shared/ui/button"
 import { AppLink, AppLinkTheme } from "@/shared/ui/appLink"
-import { routerPaths } from "@/shared/config"
+import { routerPaths } from "@/shared/config/router"
 import { AboutIcon, MainIcon } from "@/shared/assets"
 
 interface NavbarProps {

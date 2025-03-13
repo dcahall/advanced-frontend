@@ -6,14 +6,17 @@ import App from '@/app/App'
 
 import { ThemeProvider } from '@/shared/themeProvider'
 import { ErrorBoundary } from "@/app/providers/errorBoundary"
+import { StoreProvider } from "@/app/providers/store"
 
 render(
-    <ErrorBoundary>
-        <ThemeProvider>
-            <BrowserRouter>
-                <App/>
-            </BrowserRouter>
-        </ThemeProvider>
-    </ErrorBoundary>,
+    <StoreProvider>
+        <ErrorBoundary>
+            <ThemeProvider>
+                <BrowserRouter>
+                    <App/>
+                </BrowserRouter>
+            </ThemeProvider>
+        </ErrorBoundary>
+    </StoreProvider>,
     document.getElementById('root')
 )

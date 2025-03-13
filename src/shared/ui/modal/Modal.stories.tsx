@@ -12,7 +12,7 @@ const meta = {
     },
     args: {
         isOpen: true,
-        children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, impedit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, impedit?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, impedit?'
+        children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, impedit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, impedit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, impedit?'
     }
 } satisfies Meta<typeof Modal>
 
