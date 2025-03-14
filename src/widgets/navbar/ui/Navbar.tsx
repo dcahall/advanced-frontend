@@ -29,6 +29,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                 onClose={onToggleModal}
             >
                 {/* eslint-disable-next-line i18next/no-literal-string */}
+                {/* eslint-disable-next-line i18next/no-literal-string */}
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, impedit?
             </Modal>
         </div>

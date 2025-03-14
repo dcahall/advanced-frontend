@@ -1,4 +1,4 @@
-import React, { type FC, Suspense, useState } from 'react'
+import React, { type FC, Suspense } from 'react'
 
 import { Navbar } from "@/widgets/navbar"
 import { Sidebar } from "@/widgets/sidebar"
