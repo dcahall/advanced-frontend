@@ -1,13 +1,15 @@
 import { useTranslation } from "react-i18next"
-import { Counter } from "@/entities/counter/ui/Counter"
+import { useState } from "react"
+import { Input } from "@/shared/ui/input"
 
 const MainPage = () => {
     const { t } = useTranslation('main')
+    const [value, setValue] = useState('')
 
     return (
         <div>
             {t('Главная страница')}
-            <Counter/>
+            <Input value={value} onChange={setValue} placeholder="Введите текст"/>
         </div>
     )
 }

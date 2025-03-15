@@ -43,7 +43,7 @@ module.exports = {
     },
     rules: {
         quotes: "off",
-        "max-len": ["error", 200],
+        "max-len": ["error", 150],
         "@typescript-eslint/quotes": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/indent": ["error", 4],
