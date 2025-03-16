@@ -58,6 +58,7 @@ module.exports = {
             { markupOnly: true, onlyAttribute: [""] }
         ],
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "error"
+        "react-hooks/exhaustive-deps": "error",
+        "@typescript-eslint/no-invalid-void-type": "off"
     }
 }
