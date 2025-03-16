@@ -2,9 +2,11 @@ name: Advanced-frontend CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ ]
+#    branches: [ main, develop ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ ]
+#    branches: [ main, develop ]
 
 jobs:
   build:

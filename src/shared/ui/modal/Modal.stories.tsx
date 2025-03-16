@@ -7,6 +7,12 @@ const meta = {
     title: 'shared/Modal',
     component: Modal,
     tags: ['autodocs'],
+    argTypes: {
+        isLazy: {
+            description: 'Ленивая подгрузка модалки.' +
+              ' Если модалка не открыта и isLazy=true, модалка не монитируется в DOM'
+        }
+    },
     parameters: {
         layout: 'fullscreen'
     },

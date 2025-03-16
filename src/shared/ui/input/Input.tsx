@@ -1,4 +1,4 @@
-import { type FC, type InputHTMLAttributes, memo, useState } from "react"
+import { type FC, type InputHTMLAttributes, memo, type ReactEventHandler, useEffect, useRef, useState } from "react"
 
 import cls from './Input.module.scss'
 
@@ -17,15 +17,23 @@ const InputInner: FC<InputProps> = (props) => {
         value,
         placeholder = '',
         type = 'text',
+        autoFocus = false,
         ...otherProps
     } = props
 
+    const inputRef = useRef< HTMLInputElement>(null)
     const [isFocused, setIsFocused] = useState(false)
     const [caretPosition, setCaretPosition] = useState(0)
 
+    useEffect(() => {
+        setIsFocused(autoFocus)
+        if (autoFocus) {
+            inputRef?.current?.focus()
+        }
+    }, [autoFocus, inputRef])
+
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value)
-        setCaretPosition(e.target.value.length)
     }
 
     const onBlur = () => {
@@ -34,6 +42,11 @@ const InputInner: FC<InputProps> = (props) => {
 
     const onFocus = () => {
         setIsFocused(true)
+    }
+
+    const onSelect = (e: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        setCaretPosition(e?.target?.selectionStart || 0)
     }
 
     return (
@@ -45,13 +58,14 @@ const InputInner: FC<InputProps> = (props) => {
             }
             <div className={cls.caretWrapper}>
                 <input
+                    ref={inputRef}
                     type={type}
                     value={value}
-                    onClick={console.log}
                     onChange={onChangeHandler}
                     className={cls.input}
                     onFocus={onFocus}
                     onBlur={onBlur}
+                    onSelect={onSelect}
                     {...otherProps}
                 />
                 {
