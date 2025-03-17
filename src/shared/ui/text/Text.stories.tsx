@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Text } from './Text'
+import { Text, TextTheme } from './Text'
 import { themeDecorator } from "@/shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "@/shared/themeProvider/lib/ThemeContext"
 
@@ -19,6 +19,14 @@ export const Primary: Story = {
     args: {
         title: 'Title Lorem ipsum dolor sit amet.',
         text: 'Text Lorem ipsum dolor sit amet.'
+    }
+}
+
+export const Error: Story = {
+    args: {
+        title: 'Title Lorem ipsum dolor sit amet.',
+        text: 'Text Lorem ipsum dolor sit amet.',
+        theme: TextTheme.ERROR
     }
 }
 

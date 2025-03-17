@@ -1,4 +1,4 @@
-import React, { type FC, Suspense } from 'react'
+import React, { type FC, Suspense, useEffect } from 'react'
 
 import { Navbar } from "@/widgets/navbar"
 import { Sidebar } from "@/widgets/sidebar"
@@ -9,9 +9,16 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import '@/shared/config/i18n/i18n'
 
 import { AppRouter } from "./providers/router"
+import { useDispatch } from "react-redux"
+import { userActions } from "@/entities/user"
 
 const App: FC = () => {
     const { theme } = useTheme()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(userActions.initAuthData())
+    }, [dispatch])
 
     return (
         <Suspense fallback=''>

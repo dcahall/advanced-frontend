@@ -1,4 +1,4 @@
-import { type FC, type InputHTMLAttributes, memo, type ReactEventHandler, useEffect, useRef, useState } from "react"
+import { type FC, type InputHTMLAttributes, memo, useEffect, useRef, useState } from "react"
 
 import cls from './Input.module.scss'
 

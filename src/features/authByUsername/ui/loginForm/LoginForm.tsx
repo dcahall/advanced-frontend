@@ -1,4 +1,4 @@
-import { type FC, memo, useCallback } from "react"
+import React, { type FC, memo, useCallback } from "react"
 
 import cls from './LoginForm.module.scss'
 
@@ -6,6 +6,7 @@ import { classNames } from "@/shared/lib/classNames"
 import { useTranslation } from "react-i18next"
 import { Button, ButtonTheme } from "@/shared/ui/button"
 import { Input } from "@/shared/ui/input"
+import { Text, TextTheme } from "@/shared/ui/text"
 import { useDispatch, useSelector } from "react-redux"
 import { loginActions } from "../../model/slice/loginSlice"
 import { getLoginState } from "../../model/selector/getLoginState/getLoginState"
@@ -34,7 +35,8 @@ const LoginFormInner: FC<LoginFormProps> = ({ className }) => {
 
     return (
         <div className={classNames(cls.loginForm, {}, [className])}>
-            {error && <div>{error}</div>}
+            <Text title={t('Форма авторизации')}/>
+            {error && <Text text={t('Вы ввели неправильный логин или пароль')} theme={TextTheme.ERROR}/>}
             <Input
                 value={username}
                 className={cls.input}
