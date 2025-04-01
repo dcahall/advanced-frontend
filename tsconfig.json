@@ -2,11 +2,10 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "ESNext",
     "target": "es5",
     "jsx": "react-jsx",
-    "allowJs": true,
-    "module": "commonjs",
+    "module": "ESNext",
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {

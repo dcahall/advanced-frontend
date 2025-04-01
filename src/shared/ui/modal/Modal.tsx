@@ -41,6 +41,8 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, className, isLazy = 'fa
     useEffect(() => {
         if (isLazy && isOpen) {
             setIsMounted(true)
+        } else {
+            setIsMounted(false)
         }
     }, [isOpen, isLazy])
 

@@ -60,6 +60,7 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
         "@typescript-eslint/no-invalid-void-type": "off",
+        "@typescript-eslint/no-dynamic-delete": "off",
         "react/display-name": "off"
     }
 }
