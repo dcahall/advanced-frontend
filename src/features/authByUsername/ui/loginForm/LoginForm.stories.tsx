@@ -31,6 +31,7 @@ export const Error: Story = {
                     password: 'admin',
                     error: 'error happens'
                 }
+
             }
         )
     ]
