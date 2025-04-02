@@ -1,4 +1,4 @@
-import { configureStore, type DeepPartial } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import { type StateSchema } from "../types/stateSchema"
 import { counterReducer } from "@/entities/counter"
 import { userReducer } from "@/entities/user"
