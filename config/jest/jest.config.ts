@@ -36,7 +36,8 @@ export default {
     moduleNameMapper: {
         "^@/(.*)$": "<rootDir>src/$1",
         '\\.(css|scss)$': 'identity-obj-proxy',
-        '\\.(svg)$': path.resolve(__dirname, "EmptyMockComponent")
+        '\\.(svg)$': path.resolve(__dirname, "EmptyMockComponent"),
+        axios: 'axios/dist/node/axios.cjs'
     },
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped

@@ -20,7 +20,6 @@ export const loginByUsername = createAsyncThunk<User, void, { rejectValue: strin
 
             return response.data
         } catch (e) {
-            console.log(e)
             return thunkAPI.rejectWithValue('error')
         }
     }
