@@ -11,6 +11,8 @@
     "start:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production --config webpack.config.ts",
     "build:dev": "webpack --env mode=development --config webpack.config.ts",
+    "lint": "npm run lint:ts && npm run lint:scss",
+    "lint:fix": "npm run lint:ts:fix && npm run lint:scss:fix",
     "lint:ts": "eslint \"**/*.ts?(x)\"",
     "lint:ts:fix": "eslint \"**/*.ts?(x)\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",

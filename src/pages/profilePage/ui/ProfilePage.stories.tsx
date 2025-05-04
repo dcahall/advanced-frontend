@@ -3,6 +3,7 @@ import { themeDecorator } from "@/shared/config/storybook/decorators/themeDecora
 import { Theme } from "@/shared/themeProvider/lib/ThemeContext"
 
 import ProfilePage from "./ProfilePage"
+import { storeDecorator } from "@/shared/config/storybook"
 
 const meta = {
     title: 'pages/ProfilePage',
@@ -16,9 +17,14 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Light: Story = {}
+export const Light: Story = {
+    decorators: [
+        storeDecorator({})
+    ]
+}
 export const Dark: Story = {
     decorators: [
-        themeDecorator(Theme.DARK)
+        themeDecorator(Theme.DARK),
+        storeDecorator({})
     ]
 }

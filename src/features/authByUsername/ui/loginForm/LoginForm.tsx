@@ -48,7 +48,7 @@ const LoginFormInner: FC<LoginFormProps> = ({ className, onSuccess }) => {
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess()
         }
-    }, [dispatch])
+    }, [dispatch, onSuccess])
 
     return (
         <DynamicModuleLoader removeAfterUnmount reducers={reducersList}>
