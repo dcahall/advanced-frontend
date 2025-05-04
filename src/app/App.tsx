@@ -9,12 +9,12 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import '@/shared/config/i18n/i18n'
 
 import { AppRouter } from "./providers/router"
-import { useDispatch } from "react-redux"
 import { userActions } from "@/entities/user"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch"
 
 const App: FC = () => {
     const { theme } = useTheme()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         dispatch(userActions.initAuthData())

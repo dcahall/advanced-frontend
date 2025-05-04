@@ -1,3 +1,3 @@
 export * from './ui/StoreProvider'
 export * from './types/stateSchema'
-export * from './store/store'
+export { createReduxStore, type AppDispatch } from './store/store'

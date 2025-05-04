@@ -3,6 +3,7 @@ import LoginForm from './LoginForm'
 import { themeDecorator } from "@/shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "@/shared/themeProvider/lib/ThemeContext"
 import { storeDecorator } from "@/shared/config/storybook"
+import { fn } from "@storybook/test"
 
 const meta = {
     title: 'features/LoginForm',
@@ -13,7 +14,10 @@ const meta = {
     },
     decorators: [
         storeDecorator({ loginForm: { username: 'admin', password: 'admin' } })
-    ]
+    ],
+    args: {
+        onSuccess: fn()
+    }
 } satisfies Meta<typeof LoginForm>
 
 export default meta
