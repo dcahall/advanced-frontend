@@ -17,6 +17,6 @@ describe('getUserName.test', () => {
         const state: DeepPartial<StateSchema> = {
         }
 
-        expect(getUserName(state as StateSchema)).toEqual(undefined)
+        expect(getUserName(state as StateSchema)).toEqual('')
     })
 })

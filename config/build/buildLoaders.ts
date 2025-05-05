@@ -32,10 +32,11 @@ export function buildLoaders (options: buildOptions): webpack.RuleSetRule[] {
         }
     }
 
-    // TS умеет работать с расширением jsx и tsx, так бы пришлось подключать babel
     const typeScriptLoader = {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        use: {
+            loader: "ts-loader"
+        },
         exclude: /node_modules/
     }
 

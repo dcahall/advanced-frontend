@@ -6,7 +6,7 @@ import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin"
 
 import { type buildOptions } from './types/config'
 
-export function buildPlugins ({ paths, isDev }: buildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins ({ paths, isDev, baseUrl }: buildOptions): webpack.WebpackPluginInstance[] {
     const plugins: webpack.WebpackPluginInstance[] = [
         new HTMLWebpackPlugin({
             template: paths.html
@@ -17,7 +17,8 @@ export function buildPlugins ({ paths, isDev }: buildOptions): webpack.WebpackPl
             chunkFilename: 'css/[name].[contenthash:8].css'
         }),
         new webpack.DefinePlugin({
-            _IS_DEV_: JSON.stringify(isDev)
+            _IS_DEV_: JSON.stringify(isDev),
+            _BASE_URL_: JSON.stringify(baseUrl)
         })
     ]
 

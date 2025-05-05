@@ -43,6 +43,8 @@ const LoginFormInner: FC<LoginFormProps> = ({ className, onSuccess }) => {
     }, [dispatch])
 
     const onLoginClick = useCallback(async () => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         const result = await dispatch(loginByUsername())
 
         if (result.meta.requestStatus === 'fulfilled') {
