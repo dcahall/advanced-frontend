@@ -57,10 +57,12 @@ module.exports = {
             'error',
             { markupOnly: true, onlyAttribute: [""] }
         ],
+        "@typescript-eslint/no-misused-promises": ["error", { checksVoidReturn: false }],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
         "@typescript-eslint/no-invalid-void-type": "off",
         "@typescript-eslint/no-dynamic-delete": "off",
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "react/prop-types": "off"
     }
 }

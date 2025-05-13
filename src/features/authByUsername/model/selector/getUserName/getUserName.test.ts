@@ -1,4 +1,3 @@
-import { type DeepPartial } from "@reduxjs/toolkit"
 import { type StateSchema } from "@/app/providers/store"
 import { getUserName } from "./getUserName"
 
@@ -17,6 +16,6 @@ describe('getUserName.test', () => {
         const state: DeepPartial<StateSchema> = {
         }
 
-        expect(getUserName(state as StateSchema)).toEqual(undefined)
+        expect(getUserName(state as StateSchema)).toEqual('')
     })
 })

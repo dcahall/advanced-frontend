@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { Counter } from "./Counter"
 import { renderComponent } from "@/shared/lib/test"
-import { type DeepPartial } from "@reduxjs/toolkit"
+
 import { type StateSchema } from "@/app/providers/store"
 import userEvent from '@testing-library/user-event'
 

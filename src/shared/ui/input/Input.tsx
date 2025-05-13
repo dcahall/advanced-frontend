@@ -10,7 +10,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChan
     onChange?: (value: string) => void
     placeholder?: string
 }
-const InputInner: FC<InputProps> = (props) => {
+const InputInner: FC<InputProps> = memo((props) => {
     const {
         className,
         onChange,
@@ -78,6 +78,6 @@ const InputInner: FC<InputProps> = (props) => {
             </div>
         </div>
     )
-}
+})
 
 export const Input = memo(InputInner)

@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next"
 import { Button, ButtonTheme } from "@/shared/ui/button"
 import { Input } from "@/shared/ui/input"
 import { Text, TextTheme } from "@/shared/ui/text"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { loginActions, loginReducer } from "../../model/slice/loginSlice"
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername"
 
@@ -16,16 +16,18 @@ import { getError } from "../../model/selector/getError/getError"
 import { getUserName } from "../../model/selector/getUserName/getUserName"
 import { getIsLoading } from "../../model/selector/getIsLoading/getIsLoading"
 import { DynamicModuleLoader, type ReducersList } from "@/shared/lib/components/dynamicModuleLoader"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch"
 
 const reducersList: ReducersList = { loginForm: loginReducer }
 
 export interface LoginFormProps {
     className?: string
+    onSuccess: () => void
 }
 
-const LoginFormInner: FC<LoginFormProps> = ({ className }) => {
+const LoginFormInner: FC<LoginFormProps> = ({ className, onSuccess }) => {
     const { t } = useTranslation()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const password = useSelector(getPassword)
     const username = useSelector(getUserName)
@@ -40,9 +42,16 @@ const LoginFormInner: FC<LoginFormProps> = ({ className }) => {
         dispatch(loginActions.setPassword(value))
     }, [dispatch])
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername())
-    }, [dispatch])
+    const onLoginClick = useCallback(async () => {
+        // TODO fix types
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        const result = await dispatch(loginByUsername())
+
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess()
+        }
+    }, [dispatch, onSuccess])
 
     return (
         <DynamicModuleLoader removeAfterUnmount reducers={reducersList}>

@@ -4,7 +4,7 @@ import { type BuildPaths } from "../build/types/config"
 import path from "path"
 import webpack from "webpack"
 
-const storybookWebpackConfig: StorybookConfig["webpackFinal"] = async (config) => {
+const storybookWebpackConfig: StorybookConfig["webpackFinal"] = async (config, any) => {
     const paths: BuildPaths = {
         entry: '',
         build: '',
@@ -19,7 +19,8 @@ const storybookWebpackConfig: StorybookConfig["webpackFinal"] = async (config) =
     }
 
     config.plugins.push(new webpack.DefinePlugin({
-        _IS_DEV_: true
+        _IS_DEV_: JSON.stringify(true),
+        _BASE_URL_: JSON.stringify('http://localhost:8000')
     }))
 
     config.module.rules = config.module.rules.map(rule => {

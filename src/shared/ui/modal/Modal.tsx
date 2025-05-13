@@ -5,6 +5,7 @@ import cls from './Modal.module.scss'
 import { classNames } from "@/shared/lib/classNames"
 import { Portal } from "@/shared/ui/portal"
 import { useTheme } from "@/shared/themeProvider"
+import { type Mods } from "@/shared/lib/classNames/classNames"
 
 interface ModalProps {
     className?: string
@@ -19,7 +20,7 @@ const ANIMATION_DELAY = 300
 export const Modal: FC<ModalProps> = ({ isOpen, onClose, className, isLazy = 'false', children }) => {
     const [isClosed, setIsClosed] = useState(false)
     const [isMounted, setIsMounted] = useState(false)
-    const timerRef = useRef<ReturnType<typeof setTimeout>>()
+    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
     const { theme } = useTheme()
 
     const closeHandler = useCallback(() => {
@@ -57,14 +58,16 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, className, isLazy = 'fa
     }, [isOpen, onKeyDown])
 
     useEffect(() => {
-        return () => { clearTimeout(timerRef.current) }
+        return () => {
+            if (timerRef.current) { clearTimeout(timerRef.current) }
+        }
     }, [])
 
     const onClickContent = (e: React.MouseEvent) => {
         e.stopPropagation()
     }
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.closed]: isClosed
     }
