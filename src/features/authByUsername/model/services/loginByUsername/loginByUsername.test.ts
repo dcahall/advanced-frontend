@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { loginByUsername } from "./loginByUsername"
-import { type DeepPartial } from "@reduxjs/toolkit"
 import { type StateSchema } from "@/app/providers/store"
 import { userActions } from "@/entities/user"
 import { TestAsyncThunk } from "@/shared/lib/test/testAsyncThunk"

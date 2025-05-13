@@ -4,7 +4,7 @@ import { type BuildPaths } from "../build/types/config"
 import path from "path"
 import webpack from "webpack"
 
-const storybookWebpackConfig: StorybookConfig["webpackFinal"] = async (config) => {
+const storybookWebpackConfig: StorybookConfig["webpackFinal"] = async (config, any) => {
     const paths: BuildPaths = {
         entry: '',
         build: '',

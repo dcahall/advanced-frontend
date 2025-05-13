@@ -1,4 +1,4 @@
-import { type AsyncThunkAction, type DeepPartial } from "@reduxjs/toolkit"
+import { type AsyncThunkAction } from "@reduxjs/toolkit"
 import { type StateSchema } from "@/app/providers/store"
 
 type ActionCreatorType<Return, Arg, RejectedValue> =

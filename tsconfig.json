@@ -14,12 +14,12 @@
       ]
     },
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": [".eslintrc.js", "babel.config.json", "./src/**/*", "./config/**/*", "webpack.config.ts"]
+  "include": [".eslintrc.js", "babel.config.json", "./src/**/*", "./config/**/*", "webpack.config.ts"],
 }
