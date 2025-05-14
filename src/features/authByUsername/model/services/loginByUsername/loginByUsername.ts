@@ -9,7 +9,7 @@ export const loginByUsername = createAsyncThunk<User, void, AsyncThunkOptions<st
         const { dispatch, getState, extra, rejectWithValue } = thunkAPI
 
         try {
-            const { username, password } = getState().loginForm
+            const { username, password } = getState().loginForm || {}
             const response = await extra.api.post<User>('/login', { username, password })
 
             if (!response.data) {

@@ -41,8 +41,8 @@ export const Button: FC<ButtonProps> = memo<ButtonProps>((props) => {
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
-        [cls.theme]: theme,
-        [cls.size]: size
+        [cls[theme]]: theme,
+        [cls[size]]: size
     }
 
     return (

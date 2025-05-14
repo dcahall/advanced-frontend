@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { type StateSchema } from "../types/stateSchema"
+import { type CombinedState, configureStore, type Reducer } from '@reduxjs/toolkit'
+import { type StateSchema, type ThunkExtraArg } from "../types/stateSchema"
 import { counterReducer } from "@/entities/counter"
 import { userReducer } from "@/entities/user"
 import { type ReducersMapObject } from "redux"
@@ -20,24 +20,23 @@ export const createReduxStore = (
 
     const reducerManager = createReducerManager(rootReducers)
 
-    const store = configureStore<StateSchema>({
-        reducer: reducerManager.reduce,
+    const thunkExtraArg: ThunkExtraArg = {
+        api: $api,
+        navigate
+    }
+
+    const store = configureStore({
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: _IS_DEV_,
         preloadedState: initialState,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        middleware: getDefaultMiddleware => getDefaultMiddleware({
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
-                extraArgument: {
-                    api: $api,
-                    navigate
-                }
+                extraArgument: thunkExtraArg
             }
         })
     })
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
+    // @ts-expect-error - We're adding reducerManager to store for async reducers
     store.reducerManager = reducerManager
 
     return store
