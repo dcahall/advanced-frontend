@@ -3,12 +3,14 @@ import { type FC, type InputHTMLAttributes, memo, useEffect, useRef, useState } 
 import cls from './Input.module.scss'
 
 import { classNames } from "@/shared/lib/classNames"
+import { type Mods } from "@/shared/lib/classNames/classNames"
 
-interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
+interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'readOnly' > {
     className?: string
     value?: string
     onChange?: (value: string) => void
     placeholder?: string
+    readonly?: boolean
 }
 const InputInner: FC<InputProps> = memo((props) => {
     const {
@@ -18,6 +20,7 @@ const InputInner: FC<InputProps> = memo((props) => {
         placeholder = '',
         type = 'text',
         autoFocus = false,
+        readonly = false,
         ...otherProps
     } = props
 
@@ -49,11 +52,15 @@ const InputInner: FC<InputProps> = memo((props) => {
         setCaretPosition(e?.target?.selectionStart || 0)
     }
 
+    const mods: Mods = {
+        [cls.readonly]: readonly
+    }
+
     return (
-        <div className={classNames(cls.inputWrapper, {}, [className])}>
+        <div className={classNames(cls.inputWrapper, mods, [className])}>
             {
                 placeholder && <div className={cls.placeholder}>
-                    {`${placeholder} >`}
+                    {`${placeholder}>`}
                 </div>
             }
             <div className={cls.caretWrapper}>
@@ -66,6 +73,7 @@ const InputInner: FC<InputProps> = memo((props) => {
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onSelect={onSelect}
+                    readOnly={readonly}
                     {...otherProps}
                 />
                 {
