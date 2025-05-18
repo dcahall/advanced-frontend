@@ -5,5 +5,10 @@
   "Ваша фамилия": "Your lastname",
   "Произошла ошибка при загрузке профиля": "An error occurred when uploading the profile",
   "Попробуйте обновить страницу": "Try refreshing the page",
-  "Отменить": "Cancel"
+  "Отменить": "Cancel",
+  "Сохранить": "Save",
+  "Город": "City",
+  "Ваш возраст": "Your age",
+  "Введите имя пользователя": "Enter the user's name",
+  "Введите ссылку на аватар": "Enter the link to the avatar"
 }

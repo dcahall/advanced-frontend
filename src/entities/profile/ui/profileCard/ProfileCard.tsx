@@ -2,25 +2,42 @@ import { type FC } from "react"
 
 import cls from './ProfileCard.module.scss'
 
-import { classNames } from "@/shared/lib/classNames"
+import { classNames, type Mods } from "@/shared/lib/classNames"
 import { Text, TextAlign, TextTheme } from "@/shared/ui/text"
 import { Input } from "@/shared/ui/input"
 import { useTranslation } from "react-i18next"
 import { type Profile } from "../../model/types/profile"
 import { Loader } from "@/shared/ui/loader"
+import { Avatar } from "@/shared/ui/avatar"
 
 interface ProfileCardProps {
-    onChangeFirstname: (value?: string) => void
-    onChangeLastname: (value?: string) => void
     className?: string
     data?: Profile
     isLoading?: boolean
     error?: string
     readonly?: boolean
+    onChangeFirstname?: (value?: string) => void
+    onChangeLastname?: (value?: string) => void
+    onChangeAge?: (value?: string) => void
+    onChangeCity?: (value?: string) => void
+    onChangeUsername?: (value?: string) => void
+    onChangeAvatar?: (value?: string) => void
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
-    const { className, data, isLoading, error, readonly, onChangeFirstname, onChangeLastname } = props
+    const {
+        className,
+        data,
+        isLoading,
+        error,
+        readonly,
+        onChangeFirstname,
+        onChangeLastname,
+        onChangeAge,
+        onChangeCity,
+        onChangeUsername,
+        onChangeAvatar
+    } = props
     const { t } = useTranslation('profile')
 
     if (isLoading) {
@@ -40,8 +57,18 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
         </div>
     }
 
+    const mods: Mods = {
+        [cls.editing]: !readonly
+    }
+
     return (
-        <div className={classNames(cls.profileCard, {}, [className])}>
+        <div className={classNames(cls.profileCard, mods, [className])}>
+            {
+                data?.avatar &&
+                <div className={cls.avatarWrapper}>
+                    <Avatar alt='avatarImg' src={data.avatar} size={50}/>
+                </div>
+            }
             <Input
                 value={data?.first}
                 placeholder={t('Ваше имя')}
@@ -53,6 +80,34 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 value={data?.lastname}
                 placeholder={t('Ваша фамилия')}
                 onChange={onChangeLastname}
+                className={cls.input}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.age}
+                placeholder={t('Ваш возраст')}
+                onChange={onChangeAge}
+                className={cls.input}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.city}
+                placeholder={t('Город')}
+                onChange={onChangeCity}
+                className={cls.input}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.username}
+                placeholder={t('Введите имя пользователя')}
+                onChange={onChangeUsername}
+                className={cls.input}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.avatar}
+                placeholder={t('Введите ссылку на аватар')}
+                onChange={onChangeAvatar}
                 className={cls.input}
                 readonly={readonly}
             />

@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import { type User, userActions } from "@/entities/user"
 import { type AsyncThunkOptions } from "@/app/providers/store"
 import { USER_LOCAL_STORAGE_KEY } from "@/shared/consts/localStorage"
+import { getLoginState } from "@/features/authByUsername/model/selector/getLoginState/getLoginState"
 
 export const loginByUsername = createAsyncThunk<User, void, AsyncThunkOptions<string> >(
     'login/fetchByUsername',
@@ -9,7 +10,7 @@ export const loginByUsername = createAsyncThunk<User, void, AsyncThunkOptions<st
         const { dispatch, getState, extra, rejectWithValue } = thunkAPI
 
         try {
-            const { username, password } = getState().loginForm || {}
+            const { username, password } = getLoginState(getState()) || {}
             const response = await extra.api.post<User>('/login', { username, password })
 
             if (!response.data) {
