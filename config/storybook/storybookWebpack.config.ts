@@ -12,6 +12,11 @@ const storybookWebpackConfig: StorybookConfig["webpackFinal"] = async (config, a
         src: path.resolve(__dirname, '..', '..', 'src')
     }
 
+    config.resolve = config.resolve || {}
+    config.plugins = config.plugins || []
+    config.module = config.module || {}
+    config.module.rules = config.module.rules || []
+
     config.resolve.extensions = [".tsx", ".ts", ".js"]
     config.resolve.alias = {
         ...config.resolve.alias,

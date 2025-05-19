@@ -5,7 +5,7 @@ import cls from './Modal.module.scss'
 import { classNames } from "@/shared/lib/classNames"
 import { Portal } from "@/shared/ui/portal"
 import { useTheme } from "@/shared/themeProvider"
-import { type Mods } from "@/shared/lib/classNames/classNames"
+import { type Mods } from "@/shared/lib/classNames"
 
 interface ModalProps {
     className?: string

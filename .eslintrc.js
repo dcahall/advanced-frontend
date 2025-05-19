@@ -62,6 +62,7 @@ module.exports = {
         "react-hooks/exhaustive-deps": "error",
         "@typescript-eslint/no-invalid-void-type": "off",
         "@typescript-eslint/no-dynamic-delete": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
         "react/display-name": "off",
         "react/prop-types": "off"
     }

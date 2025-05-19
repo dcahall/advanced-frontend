@@ -1,6 +1,7 @@
 {
     "О сайте": "About",
     "Главная": "Main",
+    "Профиль": "Profile",
     "Язык": "English",
     "Страница не найдена": "Page not found",
     "Произошла непредвиденная ошибка": "There has been an unforeseen error",
@@ -14,5 +15,7 @@
     "Введите пароль": "Enter password",
     "Форма авторизации": "Authorization form",
     "Вы ввели неправильный логин или пароль": "You entered an incorrect username or password",
-    "Выйти": "Logout"
+    "Выйти": "Logout",
+    "Укажите валюту": "Specify the currency",
+    "Укажите страну": "Specify the country"
 }
