@@ -10,6 +10,12 @@ import { type Profile } from "../../model/types/profile"
 import { Loader } from "@/shared/ui/loader"
 import { Avatar } from "@/shared/ui/avatar"
 
+import { type Currency } from "@/entities/currency/model/types/currency"
+import { CurrencySelect } from "@/entities/currency"
+
+import { type Country } from "@/entities/country/model/types/country"
+import { CountrySelect } from "@/entities/country"
+
 interface ProfileCardProps {
     className?: string
     data?: Profile
@@ -22,6 +28,8 @@ interface ProfileCardProps {
     onChangeCity?: (value?: string) => void
     onChangeUsername?: (value?: string) => void
     onChangeAvatar?: (value?: string) => void
+    onChangeCurrency?: (currency?: Currency) => void
+    onChangeCountry?: (country?: Country) => void
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
@@ -36,7 +44,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
         onChangeAge,
         onChangeCity,
         onChangeUsername,
-        onChangeAvatar
+        onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry
     } = props
     const { t } = useTranslation('profile')
 
@@ -108,6 +118,18 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 value={data?.avatar}
                 placeholder={t('Введите ссылку на аватар')}
                 onChange={onChangeAvatar}
+                className={cls.input}
+                readonly={readonly}
+            />
+            <CurrencySelect
+                value={data?.currency}
+                onChange={onChangeCurrency}
+                className={cls.input}
+                readonly={readonly}
+            />
+            <CountrySelect
+                value={data?.country}
+                onChange={onChangeCountry}
                 className={cls.input}
                 readonly={readonly}
             />
