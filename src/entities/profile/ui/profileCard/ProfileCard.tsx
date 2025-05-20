@@ -50,14 +50,18 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     } = props
     const { t } = useTranslation('profile')
 
+    const mods: Mods = {
+        [cls.editing]: !readonly
+    }
+
     if (isLoading) {
-        return <div className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+        return <div className={classNames(cls.profileCard, mods, [className, cls.loading])}>
             <Loader/>
         </div>
     }
 
     if (error) {
-        return <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
+        return <div className={classNames(cls.profileCard, mods, [className, cls.error])}>
             <Text
                 title={t('Произошла ошибка при загрузке профиля')}
                 text={t('Попробуйте обновить страницу')}
@@ -65,10 +69,6 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 align={TextAlign.CENTER}
             />
         </div>
-    }
-
-    const mods: Mods = {
-        [cls.editing]: !readonly
     }
 
     return (
