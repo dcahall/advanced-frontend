@@ -25,7 +25,8 @@ const storybookWebpackConfig: StorybookConfig["webpackFinal"] = async (config, a
 
     config.plugins.push(new webpack.DefinePlugin({
         _IS_DEV_: JSON.stringify(true),
-        _BASE_URL_: JSON.stringify('http://localhost:8000')
+        _BASE_URL_: JSON.stringify('http://localhost:8000'),
+        _PROJECT_: JSON.stringify('storybook')
     }))
 
     config.module.rules = config.module.rules.map(rule => {

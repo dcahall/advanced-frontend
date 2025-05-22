@@ -16,13 +16,15 @@ export default (env: BuildEnv) => {
     const isDev = mode === 'development'
     const port = env.port || 3000
     const baseUrl = env.baseUrl || 'http://localhost:8000'
+    const project = 'frontend'
 
     const config: webpack.Configuration = buildWebpackConfig({
         mode,
         paths,
         isDev,
         port,
-        baseUrl
+        baseUrl,
+        project
     })
 
     return config

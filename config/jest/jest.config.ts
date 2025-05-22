@@ -2,7 +2,7 @@ import path from "path"
 
 export default {
     // A set of global variables that need to be available in all test environments
-    globals: { _IS_DEV_: true, _BASE_URL_: 'http://localhost:8000' },
+    globals: { _IS_DEV_: true, _BASE_URL_: 'http://localhost:8000', _PROJECT_: 'jest' },
 
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
